@@ -1,0 +1,3 @@
+model.add(Dense(units=200 , input_dim = 28*28 , activation = 'relu'))
+model.add(Dense(units=128 , input_dim = 28*28 , activation = 'relu'))
+model.add(Dense(units=64 , input_dim = 28*28 , activation = 'relu'))
