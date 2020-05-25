@@ -1,9 +1,22 @@
 import smtplib
-sender = 'Enter senders mail id'
-receiver = 'Enter recievers mail id'
-passwd ='Enter senders password'
-server = smtplib.SMTP('smtp.gmail.com', 587)
+a=" Welcome To E-mail Sender Tool "
+print(a.center(100,'*'))
+print()
+m="Please enable third-party access in your emails security settings.In case of gmail visit : https://myaccount.google.com/security  then enable less secure apps"
+print(m)
+print()
+
+sender_email=input(str("Enter your Email : "))
+password=input(str("Enter your Password : "))
+rec_email=input(str("Enter recepient Email : "))
+message=input("Enter your Text-message : ")
+
+server=smtplib.SMTP('smtp.gmail.com',587)
+server.ehlo()
 server.starttls()
-message = "Hello Developer, Your model has been trained Successfully and gives the accuracy= cat /code/accuracy.txt .
-           Thank you."
-server.sendmail(sender, receiver, message)
+
+server.login(sender_email,password)
+print("LogIn Successfull")
+
+server.sendmail(sender_email,rec_email,message)
+print("Email has been sent successfully to "+rec_email)
